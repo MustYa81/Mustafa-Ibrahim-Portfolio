@@ -426,51 +426,7 @@
       // Set current year in copyright
       document.getElementById('current-year').textContent = new Date().getFullYear();
       
-      // Mobile menu toggle
-      const mobileMenuButton = document.querySelector('.mobile-menu-button');
-      const mobileNav = document.querySelector('.mobile-nav');
       
-      if (mobileMenuButton && mobileNav) {
-        mobileMenuButton.addEventListener('click', () => {
-          const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
-          mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
-          mobileNav.classList.toggle('active');
-          
-          // Change icon
-          const menuIcon = mobileMenuButton.querySelector('svg');
-          if (isExpanded) {
-            // Change to hamburger icon
-            menuIcon.innerHTML = `
-              <line x1="3" y1="12" x2="21" y2="12"></line>
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <line x1="3" y1="18" x2="21" y2="18"></line>
-            `;
-          } else {
-            // Change to X icon
-            menuIcon.innerHTML = `
-              <line x1="18" y1="6" x2="6" y2="18"></line>
-              <line x1="6" y1="6" x2="18" y2="18"></line>
-            `;
-          }
-        });
-        
-        // Close mobile menu when clicking on a link
-        const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
-        mobileNavLinks.forEach(link => {
-          link.addEventListener('click', () => {
-            mobileMenuButton.setAttribute('aria-expanded', 'false');
-            mobileNav.classList.remove('active');
-            
-            // Change back to hamburger icon
-            const menuIcon = mobileMenuButton.querySelector('svg');
-            menuIcon.innerHTML = `
-              <line x1="3" y1="12" x2="21" y2="12"></line>
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <line x1="3" y1="18" x2="21" y2="18"></line>
-            `;
-          });
-        });
-      }
       
       // Simple form submission with feedback
       const contactForm = document.getElementById('contactForm');
